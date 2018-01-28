@@ -1,0 +1,17 @@
+{
+  "name": "content-scraper",
+  "version": "0.0.1",
+  "description": "A treehouse project webscraper",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cheerio": "latest",
+    "express": "latest",
+    "request": "latest"
+  },
+  "author": "Ryan Morales",
+  "license": "ISC"
+}
