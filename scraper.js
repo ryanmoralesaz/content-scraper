@@ -1,4 +1,4 @@
-    const request = require('request');
+const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
@@ -44,7 +44,7 @@ let shirturlscrape = new Promise((resolve) => { // make a promise to find all of
             }); // end products filter
         } else {
             console.log('There’s been a 404 error. Cannot connect to http://shirts4mike.com.');
-        } 
+        }
         // end error check
     }); // end request url
 }); // end the promise
@@ -88,7 +88,13 @@ shirturlscrape // following the promise chain to scrape shirt data
                     if (shirtPrices.length == result.length) {
 
                         for (let i = 0; i < result.length; i++) { //push each shirt data object to the final shirtdata array
-                            shirtData.push({ title: shirtTitles[i], price: shirtPrices[i], imageUrl: shirtImageUrls[i], url: shirtUrls[i], time: currentDate });
+                            shirtData.push({
+                                title: shirtTitles[i],
+                                price: shirtPrices[i],
+                                imageUrl: shirtImageUrls[i],
+                                url: shirtUrls[i],
+                                time: currentDate
+                            });
 
                             if (shirtData.length == result.length) {
                                 commaseparate(shirtData); // turn the data into csv formatting
@@ -100,6 +106,3 @@ shirturlscrape // following the promise chain to scrape shirt data
             });
         });
     })
-
-
-
