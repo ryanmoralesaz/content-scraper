@@ -1,4 +1,4 @@
-const request = require('request');
+    const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
@@ -42,7 +42,10 @@ let shirturlscrape = new Promise((resolve) => { // make a promise to find all of
                 }); // end shirtlink map
                 resolve(shirturls); // send the urls back to the promise
             }); // end products filter
-        } // end error check
+        } else {
+            console.log('There’s been a 404 error. Cannot connect to http://shirts4mike.com.');
+        } 
+        // end error check
     }); // end request url
 }); // end the promise
 
@@ -62,7 +65,8 @@ let commaseparate = (callback) => { // functino to put data in csv format
     return shirtData;
 };
 
-shirturlscrape // really wild attempt to follow the promise chain down from scraping each shirt url.
+
+shirturlscrape // following the promise chain to scrape shirt data
     .then(result => {
         result.map((i) => {
             request(i, (error, response, html) => { // request the shirt site
@@ -96,6 +100,6 @@ shirturlscrape // really wild attempt to follow the promise chain down from scra
             });
         });
     })
-    .catch(()=>{
-        console.log('There’s been a 404 error. Cannot connect to http://shirts4mike.com.');
-    })
+
+
+
