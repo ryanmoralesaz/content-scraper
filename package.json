@@ -10,7 +10,8 @@
   "dependencies": {
     "cheerio": "latest",
     "express": "latest",
-    "request": "latest"
+    "request": "latest",
+    "file-system": "latest"
   },
   "author": "Ryan Morales",
   "license": "ISC"

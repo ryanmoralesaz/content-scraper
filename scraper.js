@@ -1,6 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const fs = require('fs');
+const fs = require('file-system');
 
 let shirtPrices = []; // array to hold prices
 let shirtTitles = []; // array to hold titles
@@ -21,7 +21,7 @@ let year = d.getFullYear(); // set the year
 let currentDate = "" + year + "-" + month + "-" + day; // concatenate date to correct order
 let mikeshirturl = 'http://www.shirts4mike.com/shirts.php'; //shirt site entry point
 
-// Thanks to chovy @ stack overflow 
+// Thanks to chovy @ stack overflow
 //https://stackoverflow.com/questions/21194934/node-how-to-create-a-directory-if-doesnt-exist
 if (!fs.existsSync("./data")) {
     fs.mkdirSync("./data"); // create the data folder it doesn't exist
